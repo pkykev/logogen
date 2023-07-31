@@ -1,6 +1,7 @@
 //this will run the call the questions for the svg gen using the imports from lib folder
 const fs = require(`fs`)
 const inquirer = require("inquirer")
+const {Square, Triangle, Circle} = require(`./lib/shapes.js`)
 
 const questions = [{
   type: `input`,
@@ -29,8 +30,15 @@ const questions = [{
 ]
 
 inquirer.prompt(questions)
-  .then(response, function () {
-    fs.writeFile(`logo.svg`, reposnse, (err), function () {
+
+  .then(function (data) {
+    const userInput = new Circle(data.character,data.colorHex,data.shape,data.colorHexShape)
+    console.log(userInput.render())
+    fs.writeFile(`logo.svg`,userInput.render(), (err)=>{
       console.log(err)
     })
   })
+
+
+
+
