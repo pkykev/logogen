@@ -2,8 +2,8 @@
     width="300" height="200"
     xmlns="http://www.w3.org/2000/svg">
 
- <polygon points="100,50 10,210 200,210" fill="#000000" />
+ <polygon points="100,50 10,210 200,210" fill="#fcba03" />
 
- <text x="100" y="125" font-size="60" text-anchor="middle" fill="#FFFFFF">MMM</text>
+ <text x="100" y="125" font-size="60" text-anchor="middle" fill="#b734eb">TYT</text>
 
 </svg>
