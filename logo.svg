@@ -2,8 +2,8 @@
     width="300" height="200"
     xmlns="http://www.w3.org/2000/svg">
 
- <circle cx="100" cy="100" r="100" fill="#000000" />
+ <polygon points="100,50 10,210 200,210" fill="#000000" />
 
- <text x="100" y="125" font-size="60" text-anchor="middle" fill="#FFFFFF">LAM</text>
+ <text x="100" y="125" font-size="60" text-anchor="middle" fill="#FFFFFF">MMM</text>
 
 </svg>

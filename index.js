@@ -1,7 +1,7 @@
 //this will run the call the questions for the svg gen using the imports from lib folder
 const fs = require(`fs`)
 const inquirer = require("inquirer")
-const {Square, Triangle, Circle} = require(`./lib/shapes.js`)
+const { Square, Triangle, Circle } = require(`./lib/shapes.js`)
 
 const questions = [{
   type: `input`,
@@ -11,7 +11,7 @@ const questions = [{
 },
 {
   type: `input`,
-  message: `Please enter a hexadecimal color (example for white: #FFFFFF)`,
+  message: `Please enter a hexadecimal color for the logo (example for white: #FFFFFF)`,
   name: `colorHex`,
   default: `#FFFFFF`
 },
@@ -23,21 +23,33 @@ const questions = [{
 },
 {
   type: `input`,
-  message: `Please enter a hexadecimal color (example for white: #FFFFFF)`,
+  message: `Please enter a hexadecimal color for the backround (example for black: #000000)`,
   name: `colorHexShape`,
   default: `#000000`
 }
 ]
 
 inquirer.prompt(questions)
-
+  //Need to add functions for each userchoice from the shapes availeable
   .then(function (data) {
-    const userInput = new Circle(data.character,data.colorHex,data.shape,data.colorHexShape)
-    console.log(userInput.render())
-    fs.writeFile(`logo.svg`,userInput.render(), (err)=>{
-      console.log(err)
-    })
+    if (data.shape === `circle`) {
+      const userInput = new Circle(data.character, data.colorHex, data.shape, data.colorHexShape)
+      writeIt(userInput)
+    } else if (data.shape === `triangle`) {
+      const userInput = new Triangle(data.character, data.colorHex, data.shape, data.colorHexShape)
+      writeIt(userInput)
+    } else if (data.shape === `square`) {
+      const userInput = new Square(data.character,data.colorHex,data.shape,data.colorHexShape)
+      writeIt(userInput)
+    }
+    // console.log(userInput.render())
   })
+
+function writeIt(userInput) {
+  fs.writeFile(`logo.svg`, userInput.render(), (err) => {
+    console.log(err)
+  })
+}
 
 
 
